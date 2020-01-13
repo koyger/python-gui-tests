@@ -46,11 +46,9 @@ class GroupHelper:
         list = []
         excel_file = openpyxl.load_workbook(excel_path)
         current_sheet = excel_file['Лист1']
-        print("")
         # 1000 is maximum reasonable size of groups list
         for n in range(1000):
             group_name = current_sheet['A%s' % (n+1)].value  # "Group %s" % (i+1)
-            print("ОЧЕРЕДНОЕ ИМЯ ГРУППЫ: " + str(group_name))
             if group_name is None:
                 break  # let's take empty line as end of names list
             list.append(group_name)
